@@ -1,0 +1,71 @@
+<html>
+<head>
+    <title> Services </title>
+   
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="script.js"></script>
+</head>
+    
+    <body>
+     <div id="menu">
+              <ul>
+              <li><a href="index.php">Home</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="reviews.php">Reviews</a></li>
+              <li><a href="contactUs.html">Contact Us</a></li>
+              </ul>
+          </div>
+    <h2>Services We Offer!</h2>
+    <table id="t02" border="5" width= "960" bgcolor = "#884433">
+
+      </style>
+  <tr>
+    <td>Hand Care</td>
+    <td><p id = "hand">$30</p></td>
+  </tr>
+  <tr>
+    <td>Foot Care</td>
+    <td><p id = "foot">$50</p></td> 
+  </tr>
+  <tr>
+    <td>Waxing</td>
+    <td><p id = "waxing">$60</p></td> 
+  </tr>
+  <tr>
+    <td>Facial Treatment</td>
+    <td><p id = "facial">$80</p></td> 
+  </tr>
+  <tr>
+    <td>Tanning</td>
+    <td><p id = "tanning">$100</p></td> 
+  </tr>
+  <caption>Pick a service for promotional discounts at checkout!</caption>
+</table>
+   
+    
+   <div id = "menu">
+    <u1>
+    <form action="">
+<select id= "s01" name="services"  width = "960" onChange="discount()">
+<option value="0">Select one</option>
+<option value="hand">Hand Care, enjoy 15% discount</option>
+<option value="foot">Foot Care, enjoy 20% discount</option>
+<option value="waxing">Waxing, enjoy 20% discount</option>
+<option value="facial">Facial Treatment, enjoy 10% discount</option>
+<option value="tanning">Tanning, enjoy 5% discount</option>
+</select>
+
+<button type="button" onclick="myFunction()">Try it!</button>
+<script>
+function myFunction() {
+   alert("Your selection has been added to the cart!");
+}
+</script>
+</form>
+  </div>
+    </u1>
+    <img src="pic/spa.jpg">
+    </body>
+    
+    
+</html>

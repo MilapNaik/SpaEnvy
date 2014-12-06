@@ -1,0 +1,104 @@
+body {
+    margin: 0;
+    padding: 0;
+    color: #FFFFFF;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 13px;
+    line-height: 1.5em;
+    background-color: #262e34;
+   
+}
+
+h1 {
+    color: #00ffff;
+    
+}
+
+h2 {
+    color: #FFFF88;
+}
+
+h4{
+    padding: 0px;
+    margin: 0px;
+}
+
+#menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    width: 900px;
+}
+
+#menu li {
+
+    list-style-type: none;
+    display: inline;
+    float: left;
+}
+
+#menu a:link, a:visited {
+    display: block;
+    width: 135px;
+    font-weight: bold;
+    color: #FFFFFF;
+    background-color: #0033CC;
+    text-align: center;
+    padding: 4px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+table#t01 {
+    width: 100%;
+    background-color: #f1f1c1;
+}
+
+
+a:hover, a:active {
+    background-color: #7A991A;
+}
+label
+{
+width: 4em;
+float: left;
+text-align: left;
+margin-right: 0.5em;
+display: block
+}
+
+.submit input
+{
+margin-left: 40.15em;
+} 
+input
+{
+color: #781351;
+background: #fee3ad;
+border: 1px solid #781351
+}
+
+.submit
+{
+color: #000;
+background: #ffa20f;
+border: 2px outset #d7b9c9;
+margin-left: 20em;
+} 
+
+
+fieldset
+{
+border: 1px solid #781351;
+width: 30em
+}
+
+legend
+{
+color: #000;
+font-family: Tahoma, Geneva, sans-serif;
+background: #ffa20f;
+border: 1px solid #781351;
+padding: 2px 6px
+}

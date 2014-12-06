@@ -1,0 +1,271 @@
+<html>
+<head>
+
+	<title>Contact Us: Spa Envy</title>
+	<script>
+	    
+	        function validateForm(event) {
+	            event.preventDefault();
+                var x = document.forms["myForm"]["fname"].value;
+                var y = document.forms["myForm"]["lname"].value;
+                var z = document.forms["myForm"]["mail"].value;
+                var w = document.forms["myForm"]["usrtel"].value;
+                var n = document.forms["myForm"]["msg"].value;
+        
+                if (x == null || x == "") {
+                    alert("First name fields must be filled out");
+                    return false;
+                }
+                else if (y == null || y == "") {
+                    alert("Last name field must be filled out");
+                    return false;
+                }
+                else if (z == null || z == "") {
+                    alert("Email field must be filled out");
+                    return false;
+                }
+                else if (w == null || w == "") {
+                    alert("Phone number field must be filled out");
+                    return false
+                }
+                else if (!validateEmail(z)) {
+                     return false;
+                }
+                else if (!phonenumber(w)) {
+                     return false;
+                }
+                else if (!validate()) {
+                    return false;
+                }
+                else if (n.length < 1)
+                {
+                    alert("Text field is blank");
+                    return false;
+                }
+                else {
+                    document.forms['myForm'].submit();
+                    return true;
+                }
+            }
+            
+            function phonenumber(inputtxt)  
+            {  
+                var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;  
+                if(inputtxt.match(phoneno))  {  
+                    return true;  
+                }  
+                else  {  
+                    alert("Phone number is incorrect!");  
+                    return false;  
+                }  
+            }
+            
+            function validate() {
+                if (document.getElementById("General").checked || document.getElementById("Services").checked) {
+                    return true;
+                } else {
+                    alert("You didn't check the checkbox!");
+                    return false;
+                }
+            }
+            
+            function validateEmail(z) {
+                var atpos = z.indexOf("@");
+                var dotpos = z.lastIndexOf(".");
+                if (atpos<1 || dotpos<atpos+2 || dotpos+2>=z.length) {
+                    alert("Not a valid e-mail address");
+                    return false;
+                }
+                else {
+                    return true;
+                }
+            }
+            
+            //function pageReady(){
+               // btn.addEventListener("click",handleClick);
+            //}
+        
+            function handleClick() {
+                if (validateForm()) {
+                     alert("Form is validated!");
+                     return true;
+                }
+                else {
+                    return false;
+                }
+            }
+        
+           // window.addEventListener("load",pageReady() );
+	    
+	</script>
+
+</head>
+
+<html>
+<head>
+	<title>Contact US</title>
+</head>
+
+<style type="text/css">
+<!--
+
+#menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    width: 900px;
+}
+
+#menu li {
+
+    list-style-type: none;
+    display: inline;
+    float: left;
+}
+
+#menu a:link, a:visited {
+    display: block;
+    width: 135px;
+    font-weight: bold;
+    color: #FFFFFF;
+    background-color: #0033CC;
+    text-align: center;
+    padding: 4px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+a:hover, a:active {
+    background-color: #7A991A;
+}
+
+
+form{
+	margin: 0;
+	width: 430px;
+	padding: 1em;
+	border: 8px solid #990000;
+	border-radius: 1em;
+}
+
+form div + div {
+	margin-top: .5em;
+}
+
+label {
+    display: inline-block;
+    width: 90px;
+    text-align: right;
+}
+
+
+input, textarea {
+    font: 1em sans-serif;
+
+    width: 300px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    border: 1px solid #00CCFF;
+}
+
+input[type=checkbox] {
+ font: 1em sans-serif;
+
+    width: 50px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    border: 0px solid #00CCFF;
+
+}
+    
+input:focus, textarea:focus {
+    border-color: #000;
+}
+
+textarea {
+    vertical-align: top;
+    height: 5em;
+    resize: vertical;
+}
+
+.botton{
+	padding-left: 90px;
+}
+
+button{
+margin-left: .5em;
+}
+
+
+</style>
+<body>
+<!-- Menu-->
+          <div id="menu">
+              <ul>
+              <li><a href="index.php">Home</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="reviews.php">Reviews</a></li>
+              <li><a href="contactUs.html">Contact Us</a></li>
+              </ul>
+          </div>
+          </br>
+
+
+
+
+<form name="myForm" action="contactUs.php" onsubmit = "event.preventDefault; return validateForm(event);" method="post">
+<fieldset>
+<legend>Please enter your contact information in fields below:</legend>
+<br><br>
+
+<div>
+<label for="name">First Name:</label>
+<input type="text" id="fname" name="fname" />
+</div>
+
+<div>
+<label for="name">Last Name:</label>
+<input type="text" id="lname" name="lname" />
+</div>
+
+<div>
+<label for="mail">E-mail:</label>
+<input type="email" id="mail" name="mail" />
+</div>
+
+<div>
+<label for="telephone">Phone Number:</label>
+<input type="tel" id="usrtel" name="usrtel" />
+</div>
+<br><br>
+
+<legend>Select One:</legend>
+<input type="checkbox" id="General" value="General">General Questions<br>
+<input type="checkbox" id="Services" value="Service">Inquire About Services<br>
+<br><br>
+
+<div>
+<label for="msg">Message:</label> 
+<textarea id="msg" name="msg" ></textarea>
+</div>
+<br><br>
+
+
+<div>
+<div class="button">
+<button type="submit" id="btn">SEND MESSAGE</button>
+</div>
+
+<div class="button">
+<button type="reset">RESET FORM</button>
+</div>
+
+</fieldset>
+</form>
+</body>
+</html>
+
+
