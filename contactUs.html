@@ -6,78 +6,51 @@
 	    
 	        function validateForm(event) {
 	            event.preventDefault();
-                var x = document.forms["myForm"]["fname"].value;
-                var y = document.forms["myForm"]["lname"].value;
-                var z = document.forms["myForm"]["mail"].value;
-                var w = document.forms["myForm"]["usrtel"].value;
-                var n = document.forms["myForm"]["msg"].value;
-        
-                if (x == null || x == "") {
-                    alert("First name fields must be filled out");
-                    return false;
-                }
-                else if (y == null || y == "") {
-                    alert("Last name field must be filled out");
-                    return false;
-                }
-                else if (z == null || z == "") {
-                    alert("Email field must be filled out");
-                    return false;
-                }
-                else if (w == null || w == "") {
-                    alert("Phone number field must be filled out");
-                    return false
-                }
-                else if (!validateEmail(z)) {
-                     return false;
-                }
-                else if (!phonenumber(w)) {
-                     return false;
-                }
-                else if (!validate()) {
-                    return false;
-                }
-                else if (n.length < 1)
-                {
-                    alert("Text field is blank");
-                    return false;
-                }
-                else {
+                var email = document.forms["myForm"]["mail"].value;
+                var phone = document.forms["myForm"]["usrtel"].value;
+
+                if (validateEmail(email)) {
+                if (phonenumber(phone)) {
+                if (validatebox()) {
+                //If all tests pass, confirm submission
+                    alert("The form was submitted");
                     document.forms['myForm'].submit();
                     return true;
                 }
+                }
+                }
+                else {
+                    return false;
+                }
             }
             
-            function phonenumber(inputtxt)  
+            function phonenumber(phone)  
             {  
-                var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;  
-                if(inputtxt.match(phoneno))  {  
+                var correctPhone = /^(\+0?1\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/;  
+                if(phone.match(correctPhone))  {  
                     return true;  
                 }  
                 else  {  
-                    alert("Phone number is incorrect!");  
+                    alert("Please enter a valid U.S. Telephone Number!");  
                     return false;  
                 }  
             }
             
-            function validate() {
+            function validatebox() {
                 if (document.getElementById("General").checked || document.getElementById("Services").checked) {
                     return true;
                 } else {
-                    alert("You didn't check the checkbox!");
+                    alert("Please check a checkbox!");
                     return false;
                 }
             }
             
-            function validateEmail(z) {
-                var atpos = z.indexOf("@");
-                var dotpos = z.lastIndexOf(".");
-                if (atpos<1 || dotpos<atpos+2 || dotpos+2>=z.length) {
-                    alert("Not a valid e-mail address");
+            function validateEmail(email) {
+                if ( /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email) ){
+    		        return true;
+                }else{
+                    alert("Please enter a valid e-mail address");
                     return false;
-                }
-                else {
-                    return true;
                 }
             }
             
@@ -85,7 +58,7 @@
                // btn.addEventListener("click",handleClick);
             //}
         
-            function handleClick() {
+            /*function handleClick() {
                 if (validateForm()) {
                      alert("Form is validated!");
                      return true;
@@ -93,7 +66,7 @@
                 else {
                     return false;
                 }
-            }
+            }*/
         
            // window.addEventListener("load",pageReady() );
 	    
@@ -221,24 +194,28 @@ margin-left: .5em;
 <legend>Please enter your contact information in fields below:</legend>
 <br><br>
 
+<!--First Name - no numbers, required-->
 <div>
 <label for="name">First Name:</label>
-<input type="text" id="fname" name="fname" />
+<input type="text" id="fname" name="fname" value="" placeholder="Enter Your First Name..." required/>
 </div>
 
+<!--Last Name - no numbers, required-->
 <div>
 <label for="name">Last Name:</label>
-<input type="text" id="lname" name="lname" />
+<input type="text" id="lname" name="lname" value="" placeholder="Enter Your Last Name..." required/>
 </div>
 
+<!--E-mail - must be valid, required-->
 <div>
 <label for="mail">E-mail:</label>
-<input type="email" id="mail" name="mail" />
+<input type="email" id="mail" name="mail" value="" placeholder="E-mail..." required/>
 </div>
 
+<!--Phone - Allow for country code and dashes, required-->
 <div>
 <label for="telephone">Phone Number:</label>
-<input type="tel" id="usrtel" name="usrtel" />
+<input type="tel" id="usrtel" name="usrtel" value="" placeholder="Phone Number..." required/>
 </div>
 <br><br>
 
@@ -247,9 +224,10 @@ margin-left: .5em;
 <input type="checkbox" id="Services" value="Service">Inquire About Services<br>
 <br><br>
 
+<!--Message, required-->
 <div>
 <label for="msg">Message:</label> 
-<textarea id="msg" name="msg" ></textarea>
+<textarea id="msg" name="msg" required></textarea>
 </div>
 <br><br>
 
